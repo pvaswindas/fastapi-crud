@@ -1,7 +1,7 @@
-# FastAPI CRUD Project
+# Simple FastAPI CRUD for Learning
 
 ## 🚀 Overview
-This project is a **FastAPI** backend with **CRUD** (Create, Read, Update, Delete) operations using **PostgreSQL** and **SQLAlchemy**. It provides a RESTful API for managing data with structured request validation using **Pydantic**.
+This project is a **FastAPI** backend with **CRUD** (Create, Read, Update, Delete) operations using **PostgreSQL** and **SQLAlchemy**. It is a **simple CRUD API built for learning purposes**, providing a RESTful API for managing data with structured request validation using **Pydantic**.
 
 ## 📌 Features
 - FastAPI-based RESTful API
@@ -70,6 +70,7 @@ uvicorn main:app --reload
 | PUT    | `/items/{id}`   | Update an item     |
 | DELETE | `/items/{id}`   | Delete an item     |
 
+## 🎯 Learning Purpose
+This is a **simple CRUD API** built to understand and practice **FastAPI, SQLAlchemy, and PostgreSQL**. It is not intended for production use but serves as a foundation for learning backend development with FastAPI.
 
 🚀 **Happy coding!**
-
