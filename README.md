@@ -1,4 +1,4 @@
-# Simple FastAPI CRUD for Learning
+# Simple FastAPI CRUD
 
 ## 🚀 Overview
 This project is a **FastAPI** backend with **CRUD** (Create, Read, Update, Delete) operations using **PostgreSQL** and **SQLAlchemy**. It is a **simple CRUD API built for learning purposes**, providing a RESTful API for managing data with structured request validation using **Pydantic**.
