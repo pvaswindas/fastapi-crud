@@ -1,76 +1,74 @@
-# Simple FastAPI CRUD
+# FastAPI CRUD Service
 
-## 🚀 Overview
-This project is a **FastAPI** backend with **CRUD** (Create, Read, Update, Delete) operations using **PostgreSQL** and **SQLAlchemy**. It is a **simple CRUD API built for learning purposes**, providing a RESTful API for managing data with structured request validation using **Pydantic**.
+A RESTful API built with FastAPI, SQLAlchemy 2.0, and PostgreSQL for item management.
 
-## 📌 Features
-- FastAPI-based RESTful API
-- CRUD operations for database models
-- PostgreSQL as the database
-- SQLAlchemy ORM for database interactions
-- Pydantic for request validation
-- Environment variable management with `.env`
+## Tech Stack
 
-## 🛠️ Tech Stack
-- **FastAPI** - Web framework
-- **PostgreSQL** - Database
-- **SQLAlchemy** - ORM for database interaction
-- **Pydantic** - Data validation
-- **Uvicorn** - ASGI server
+- **Framework**: FastAPI 0.115.12
+- **ASGI Server**: Uvicorn 0.34.0
+- **Database**: PostgreSQL
+- **ORM**: SQLAlchemy 2.0.40
+- **Data Validation**: Pydantic 2.11.2
+- **Database Driver**: psycopg2-binary 2.9.10
+- **Environment Management**: python-dotenv 1.1.0
 
-## 📂 Project Structure
-```
-fastapi_crud/
-│── routes/          # API route handlers
-│── models.py        # Database models
-│── schemas.py       # Pydantic schemas
-│── database.py      # Database connection setup
-│── crud.py          # CRUD operations
-│── main.py          # FastAPI app entry point
-│── .env             # Environment variables
-│── .gitignore       # Ignored files
-│── README.md        # Project documentation
-```
+## Quick Start
 
-## ⚡ Installation
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/your-username/fastapi-crud.git
-cd fastapi-crud
-```
+### 1. Environment Setup
 
-### 2️⃣ Set Up Virtual Environment
-```sh
+Create and activate a Python virtual environment:
+
+```bash
 python -m venv fastapi-env
-source fastapi-env/bin/activate  # On Windows use `fastapi-env\Scripts\activate`
+source fastapi-env/bin/activate
 ```
 
-### 3️⃣ Install Dependencies
-```sh
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Configure Environment Variables
-Create a `.env` file in the project root:
-```
-DATABASE_URL=postgresql://user:password@localhost/dbname
+### 2. Configuration
+
+Create a `.env` file in the root directory with your PostgreSQL connection string:
+
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/dbname
 ```
 
-### 5️⃣ Run the FastAPI Server
-```sh
+### 3. Run Application
+
+Start the development server with auto-reload:
+
+```bash
 uvicorn main:app --reload
 ```
 
-## 📌 API Endpoints
-| Method | Endpoint         | Description         |
-|--------|-----------------|---------------------|
-| POST   | `/items/`       | Create an item     |
-| GET    | `/items/`       | Get all items      |
-| GET    | `/items/{id}`   | Get a specific item |
-| PUT    | `/items/{id}`   | Update an item     |
-| DELETE | `/items/{id}`   | Delete an item     |
+- **API Endpoint**: `http://127.0.0.1:8000`
+- **Interactive Documentation (Swagger UI)**: `http://127.0.0.1:8000/docs`
+- **Alternative Documentation (ReDoc)**: `http://127.0.0.1:8000/redoc`
 
-## 🎯 Learning Purpose
-This is a **simple CRUD API** built to understand and practice **FastAPI, SQLAlchemy, and PostgreSQL**. It is not intended for production use but serves as a foundation for learning backend development with FastAPI.
+## API Reference
 
-🚀 **Happy coding!**
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/` | Root endpoint / health check |
+| `POST` | `/items/` | Create a new item |
+| `GET` | `/items/` | List items (supports `skip` and `limit` pagination) |
+| `GET` | `/items/{item_id}` | Get item by ID |
+| `DELETE` | `/items/{item_id}` | Delete item by ID |
+
+## Project Structure
+
+```
+.
+├── crud.py          # Data access layer and database queries
+├── database.py      # Database engine and session initialization
+├── main.py          # FastAPI application entry point and router registration
+├── models.py        # SQLAlchemy ORM models
+├── schemas.py       # Pydantic validation and response schemas
+├── requirements.txt # Dependency specifications
+└── routes/
+    └── items.py     # API router for item endpoints
+```
